@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {{Product.desc |truncatewords:150}}
+
+{% endblock %}
+
+{% block title %}
+    {{Product.name}}-->AQUA Shop
+
+{% endblock %}
+{% block content %}
+<div>
+<p class="text-center my-search-text">You have Searched for: {{query}}</p></div>
+<div class="container">
+    <div class="row max-auto">
+
+        {% for Product in products %}
+        <div class="my_bottom_margin col-9 col-sm-12 col-md-4 col-lg-4">
+             <div class="card" style="width: 18rem;">
+                <a href="{{Product.get_url}}"><img class="card-img-top" src="{{Product.image.url}}" alt="Product.name" style="width:300px; height:300px;"></a>
+                <div class="card-body">
+                    <h4 class="card-title">{{Product.name}}</h4>
+                    <p class="card-text"> ${{Product.price}}</p>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div>
+            <p class="text-center my-search-text">0 Results Found</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

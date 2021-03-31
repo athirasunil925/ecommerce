@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {{Product.desc |truncatewords:150}}
+
+{% endblock %}
+
+{% block title %}
+    {{Product.name}}-->AQUA Shop
+
+{% endblock %}
+
+{% block content %}
+<div class="row my_prod_row_class">
+    <div class="mx-auto">
+        <p> <a href="{% url 'ecommerceapp:allproductcat' %}">Home</a> | <a href="{{Product.Category.get_url}}"></a>{{product.name}}</p>
+    </div>
+</div><br>
+<div class="container">
+    <br>
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+        <div style="min-width:18rem;">
+        <img src="{{Product.image.url}}" alt="{{Product.name}}">
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+    <div>
+
+        <h3>{{product.name}}</h3>
+        <img src="{{product.image.url}}"><br>
+        <p class="card-text">${{product.price}}</p>
+        <p class="card-body"> {{product.desc}}</p>
+        {% if product.stock <= 0 %}
+        <b>Out Of Stock</b>
+        {% else %}
+        <a class="btn btn-secondary" href="{% url 'cart:add_cart' product.id %}">Add to Cart</a>
+
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

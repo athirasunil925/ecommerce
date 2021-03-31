@@ -1,0 +1,106 @@
+body{
+font-family: 'Roboto', sans-serif;}
+
+.nav-item{
+    letter-spacing: .2em;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.dropdown-item{
+    letter-spacing: .2em;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/**** Category Page ****/
+
+.my_row_class{
+    padding-top: 15px;
+
+}
+
+.my_row_class.mx-auto p a{
+    color:#000;
+    font-size:12px;
+    text-decoration:none;
+
+}
+
+.my_image{
+    width:100%;
+    height:auto;
+}
+
+.my_image_padding{
+    padding-top:5px;
+
+}
+
+.my_bottom_margin{
+    margin_bottom:10px;
+
+}
+
+.card-body h4{
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+}
+.my_prod_row_class {
+    font-size:14px;
+    text-transform:none;
+    padding-top:15px;
+    padding-bottom:20px;
+}
+
+
+    color:black;
+    font-size:12px;
+}
+
+.my_prod_row_class .max-auto p a{
+    color:#000;
+    font-size:12px;
+    text-decoration:none;
+}
+
+.my-search-text{
+    padding-top:50px;
+
+}
+
+.my_custom_table{
+    min_width:400px;
+    font-size:14px;
+}
+
+.my_custom_thead{
+    width:100px;
+    height:100px;
+}
+
+
+.my_deco{
+    width:250px;
+    height:250px;
+}
+
+.custom_a{
+     text_decoration:None;
+}
+
+.custom_image{
+    width:200px;
+    height:200px;
+
+}
+
+.custom_icon{
+text_decoration:None;
+color:#868e96 !important;
+}
+
+.my_custom_button{
+    margin_top:5px;
+}

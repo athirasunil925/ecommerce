@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {% if Category %}
+        {{Category.desc |truncatewords:150 }}
+    {% else %}
+        Welcome to Cart where you can Shop
+    {% endif %}
+{% endblock %}
+{% block title %}
+    {% if Category %}
+        {{Category.name}}-Shop Cart
+    {% else %}
+        See Our Collection-Shop Cart
+{% endif %}
+{% endblock %}
+{%block content %}
+
+
+    {% if Category %}
+       <div class="row my_row_class">
+           <div class="mx-auto">
+               <p><a href="{% url 'ecommerceapp:allproductcat' %}">Our product Collections</a>{{ Category.name }}</p>
+           </div>
+       </div>
+    {% endif %}
+<div class="mx-auto">
+    {% if category %}
+    <center> <p><img class="my_image" src="{{category.image.url}}" alt="{{category.name}}" style="width:1450px; height:500px;"></p></center>
+</div><br>
+<div class="mx-auto">
+    <h1>{{category.name}}</h1>
+    <p>{{category.desc}}</p>
+</div>
+
+{% else %}
+<div>
+    <center><img class="my_image my_image_padding" src="{% static 'img/shop.png' %}" alt="" style="width:1450px; height:500px;"></center>
+</div><br>
+<div>
+    <h1>Our Product Collections</h1>
+    <p>Our Products are Shown Below....</p>
+</div>
+{% endif %}
+<div class="container">
+    <div class="row max-auto">
+
+        {% for Product in products.object_list %}
+        <div class="my_bottom_margin col-9 col-sm-12 col-md-4 col-lg-4">
+             <div class="card" style="width: 18rem;">
+                <a href="{{Product.get_url}}"><img class="card-img-top" src="{{Product.image.url}}" alt="Product.name" style="width:300px; height:300px;"></a>
+                <div class="card-body">
+                    <h4 class="card-title">{{Product.name}}</h4>
+                    <p class="card-text"> ${{Product.price}}</p>
+                </div>
+            </div>
+        </div>
+     {% endfor %}
+
+
+    </div>
+    <div class="mx-auto">
+        <div class="text-center">
+        {% for pg in products.paginator.page_range %}
+        <a href="?page={{page}}" class="btn btn-light btn-sm {% if products.number == pg %} activate {%endif %}">{{pg}}</a>
+        {% endfor %}
+    </div>
+    </div>
+
+</div>
+{% endblock %}
+
